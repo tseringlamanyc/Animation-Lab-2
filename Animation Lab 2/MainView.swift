@@ -81,7 +81,7 @@ class MainView: UIView {
        let stackViews = UIStackView(arrangedSubviews: bottomButtons)
        return stackViews
     }()
-    
+        
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -96,6 +96,10 @@ class MainView: UIView {
         setupStacks()
         setupImages()
         setupBottoms()
+        animateButtons[0].addTarget(self, action: #selector(hideLinear(sender:)), for: .touchUpInside)
+        animateButtons[1].addTarget(self, action: #selector(hideEaseIn(sender:)), for: .touchUpInside)
+        animateButtons[2].addTarget(self, action: #selector(hideEaseOut(sender:)), for: .touchUpInside)
+        animateButtons[3].addTarget(self, action: #selector(hideEaseInOut(sender:)), for: .touchUpInside)
     }
     
     private func setupStacks() {
@@ -142,4 +146,39 @@ class MainView: UIView {
             bottomStacks.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10)
         ])
     }
+    
+    @objc
+    private func hideLinear(sender: UIButton) {
+        if imagesArr[0].alpha == 1 {
+            imagesArr[0].alpha = 0
+        } else {
+            imagesArr[0].alpha = 1
+        }
+    }
+    
+    @objc
+    private func hideEaseIn(sender: UIButton) {
+        if imagesArr[1].alpha == 1 {
+            imagesArr[1].alpha = 0
+        } else {
+            imagesArr[1].alpha = 1
+        }
+    }
+    
+    @objc
+      private func hideEaseOut(sender: UIButton) {
+          if imagesArr[2].alpha == 1 {
+              imagesArr[2].alpha = 0
+          } else {
+              imagesArr[2].alpha = 1
+          }
+      }
+    @objc
+      private func hideEaseInOut(sender: UIButton) {
+          if imagesArr[3].alpha == 1 {
+              imagesArr[3].alpha = 0
+          } else {
+              imagesArr[3].alpha = 1
+          }
+      }
 }
