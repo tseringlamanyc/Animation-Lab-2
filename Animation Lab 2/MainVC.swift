@@ -20,6 +20,7 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.bottomButtons[1].addTarget(self, action: #selector(animateAll(sender:)), for: .touchUpInside)
+        mainView.bottomButtons[0].addTarget(self, action: #selector(resetAll(sender:)), for: .touchUpInside)
     }
     
     private func animateLinear() {
@@ -46,12 +47,44 @@ class MainVC: UIViewController {
         }, completion: nil)
     }
     
+    private func animateLinear2() {
+          UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveLinear], animations: {
+              self.mainView.imagesArr[0].transform = CGAffineTransform(translationX: 0, y: 0)
+          }, completion: nil)
+      }
+      
+      private func easeIn2() {
+          UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseIn], animations: {
+              self.mainView.imagesArr[1].transform = CGAffineTransform(translationX: 0, y: 0)
+          }, completion: nil)
+      }
+      
+      private func easeOut2() {
+          UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseOut], animations: {
+              self.mainView.imagesArr[2].transform = CGAffineTransform(translationX: 0, y: 0)
+          }, completion: nil)
+      }
+      
+      private func easeInOut2() {
+          UIView.animate(withDuration: 1.0, delay: 0.0, options: [.curveEaseInOut], animations: {
+              self.mainView.imagesArr[3].transform = CGAffineTransform(translationX: 0, y: 0)
+          }, completion: nil)
+      }
+    
     @objc
     private func animateAll(sender: UIButton) {
         animateLinear()
         easeIn()
         easeOut()
         easeInOut()
+    }
+    
+    @objc
+    private func resetAll(sender: UIButton){
+        animateLinear2()
+        easeIn2()
+        easeOut2()
+        easeInOut2()
     }
     
 }
