@@ -14,15 +14,19 @@ class MainView: UIView {
         var buttons = [UIButton]()
         let linearButton = UIButton()
         linearButton.tag = 0
-        linearButton.backgroundColor = .systemRed
+        linearButton.setTitle("Linear", for: .normal)
+        linearButton.setTitleColor(.black, for: .normal)
         let easeIn = UIButton()
         easeIn.tag = 1
-        easeIn.backgroundColor = .systemRed
+        easeIn.setTitle("EaseIn", for: .normal)
+        easeIn.setTitleColor(.black, for: .normal)
         let easeOut = UIButton()
-        easeOut.backgroundColor = .systemRed
+        easeOut.setTitle("EaseOut", for: .normal)
+        easeOut.setTitleColor(.black, for: .normal)
         easeOut.tag = 2
         let easeInOut = UIButton()
-        easeInOut.backgroundColor = .systemRed
+        easeInOut.setTitle("EaseInOut", for: .normal)
+        easeInOut.setTitleColor(.black, for: .normal)
         easeInOut.tag = 3
         buttons.append(linearButton)
         buttons.append(easeIn)
@@ -35,8 +39,28 @@ class MainView: UIView {
         let stackViews = UIStackView(arrangedSubviews: animateButtons)
         return stackViews
     }()
-
     
+    public lazy var imagesArr: [UIImageView] = {
+        var allImages = [UIImageView]()
+        let image1 = UIImageView()
+        image1.image = UIImage(named: "yasuo")
+        let image2 = UIImageView()
+        image2.image = UIImage(named: "yasuo")
+        let image3 = UIImageView()
+        image3.image = UIImage(named: "yasuo")
+        let image4 = UIImageView()
+        image4.image = UIImage(named: "yasuo")
+        allImages.append(image1)
+        allImages.append(image2)
+        allImages.append(image3)
+        allImages.append(image4)
+        return allImages
+    }()
+    
+    public lazy var imageStacks: UIStackView = {
+       let stackViews = UIStackView(arrangedSubviews: imagesArr)
+        return stackViews
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -50,6 +74,7 @@ class MainView: UIView {
     
     private func commonInit() {
         setupStacks()
+        setupImages()
     }
     
     private func setupStacks() {
@@ -66,5 +91,21 @@ class MainView: UIView {
             buttonStacks.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.035)
         ])
     }
+    
+    private func setupImages () {
+        addSubview(imageStacks)
+        imageStacks.translatesAutoresizingMaskIntoConstraints = false
+        imageStacks.axis = .horizontal
+        imageStacks.distribution = .fillEqually
+        imageStacks.alignment = .fill
+        imageStacks.spacing = 10
+        NSLayoutConstraint.activate([
+            imageStacks.topAnchor.constraint(equalTo: buttonStacks.bottomAnchor, constant: 10),
+            imageStacks.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            imageStacks.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            imageStacks.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15)
+        ])
+    }
+
     
 }
