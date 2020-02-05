@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5276258F23EB14810080316B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5276258E23EB14810080316B /* MainView.swift */; };
 		52D11C2D23EA8270009781A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D11C2C23EA8270009781A2 /* AppDelegate.swift */; };
 		52D11C2F23EA8270009781A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D11C2E23EA8270009781A2 /* SceneDelegate.swift */; };
 		52D11C3123EA8270009781A2 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D11C3023EA8270009781A2 /* MainVC.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5276258E23EB14810080316B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		52D11C2923EA8270009781A2 /* Animation Lab 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animation Lab 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D11C2C23EA8270009781A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52D11C2E23EA8270009781A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				52D11C2C23EA8270009781A2 /* AppDelegate.swift */,
 				52D11C2E23EA8270009781A2 /* SceneDelegate.swift */,
 				52D11C3023EA8270009781A2 /* MainVC.swift */,
+				5276258E23EB14810080316B /* MainView.swift */,
 				52D11C3523EA8271009781A2 /* Assets.xcassets */,
 				52D11C3723EA8271009781A2 /* LaunchScreen.storyboard */,
 				52D11C3A23EA8271009781A2 /* Info.plist */,
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52D11C3123EA8270009781A2 /* MainVC.swift in Sources */,
+				5276258F23EB14810080316B /* MainView.swift in Sources */,
 				52D11C2D23EA8270009781A2 /* AppDelegate.swift in Sources */,
 				52D11C2F23EA8270009781A2 /* SceneDelegate.swift in Sources */,
 			);

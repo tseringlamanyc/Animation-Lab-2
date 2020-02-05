@@ -9,6 +9,13 @@
 import UIKit
 
 class MainVC: UIViewController {
+    
+    private var mainView = MainView()
+    
+    override func loadView() {
+        view = mainView
+        view.backgroundColor = .systemBackground
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
