@@ -62,6 +62,26 @@ class MainView: UIView {
         return stackViews
     }()
     
+    public lazy var bottomButtons: [UIButton] = {
+        var buttons = [UIButton]()
+        let resetButton = UIButton()
+        resetButton.tag = 0
+        resetButton.setTitle("Reset", for: .normal)
+        resetButton.setTitleColor(.black, for: .normal)
+        let animateButton = UIButton()
+        animateButton.tag = 1
+        animateButton.setTitle("Animate", for: .normal)
+        animateButton.setTitleColor(.black, for: .normal)
+        buttons.append(resetButton)
+        buttons.append(animateButton)
+        return buttons
+    }()
+    
+    public lazy var bottomStacks: UIStackView = {
+       let stackViews = UIStackView(arrangedSubviews: bottomButtons)
+       return stackViews
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -75,6 +95,7 @@ class MainView: UIView {
     private func commonInit() {
         setupStacks()
         setupImages()
+        setupBottoms()
     }
     
     private func setupStacks() {
@@ -99,6 +120,7 @@ class MainView: UIView {
         imageStacks.distribution = .fillEqually
         imageStacks.alignment = .fill
         imageStacks.spacing = 10
+        imageStacks.backgroundColor = .systemRed
         NSLayoutConstraint.activate([
             imageStacks.topAnchor.constraint(equalTo: buttonStacks.bottomAnchor, constant: 10),
             imageStacks.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
@@ -106,6 +128,18 @@ class MainView: UIView {
             imageStacks.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15)
         ])
     }
-
     
+    private func setupBottoms() {
+        addSubview(bottomStacks)
+        bottomStacks.translatesAutoresizingMaskIntoConstraints = false
+        bottomStacks.axis = .horizontal
+        bottomStacks.distribution = .fillEqually
+        bottomStacks.alignment = .fill
+        bottomStacks.spacing = 200
+        NSLayoutConstraint.activate([
+            bottomStacks.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            bottomStacks.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 10),
+            bottomStacks.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10)
+        ])
+    }
 }
